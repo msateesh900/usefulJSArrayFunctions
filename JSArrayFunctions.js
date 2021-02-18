@@ -1,54 +1,6 @@
 			
 							// Useful JS Array Functions
 
-const items = [
-  { name: "Bike", price: 100 },
-  { name: "TV", price: 200 },
-  { name: "Album", price: 50 },
-  { name: "Book", price: 5 },
-  { name: "Phone", price: 500 },
-  { name: "Computer", price: 1000 },
-  { name: "Keyboard", price: 25 },
-];
-
-// it will filter arrays whose price is less than or equals to 100 and
-// one great thing about using filter function is it will not modify original array
-const filtereditems = items.filter((item) => {
-  return item.price <= 100;
-});
-
-// Original array is not changed
-// console.log(items);
-// [
-// { name: 'Bike', price: 100 },{ name: 'TV', price: 200 },{ name: 'Album', price: 50 },
-// { name: 'Book', price: 5 },{ name: 'Phone', price: 500 },{ name: 'Computer', price: 1000 },
-// { name: 'Keyboard', price: 25 }
-// ]
-
-// New array consists of filtered values
-// console.log(filtereditems);
-
-// [
-//   { name: 'Bike', price: 100 },
-//   { name: 'Album', price: 50 },
-//   { name: 'Book', price: 5 },
-//   { name: 'Keyboard', price: 25 }
-// ]
-
-// Map function is similar to filter function but this return the items which we need
-const itemsNames = items.map((item) => {
-  return item.name;
-});
-
-// this case we need item names
-// console.log(itemsNames);
-// [
-//   'Bike',     'TV',
-//   'Album',    'Book',
-//   'Phone',    'Computer',
-//   'Keyboard'
-// ]
-
 const characters = [
   {
     name: "Luke Skywalker",
@@ -80,7 +32,7 @@ const characters = [
   },
 ];
 
-// MAP
+                              // Array MAP Function
 // Get an array of all names
 
 const allCharacterNames = characters.map((character) => {
@@ -89,12 +41,16 @@ const allCharacterNames = characters.map((character) => {
 // console.log(allCharacterNames);
 // console.log(characters);
 
+console.log(characters.map((character) => character.name));
+
 // Get an array of all heights
 const allCharacterHeights = characters.map((character) => {
   return character.height;
 });
 // console.log(allCharacterHeights);
 // console.log(characters);
+
+console.log(characters.map((character) => character.height));
 
 const allCharactersWithHeightAndNames = characters.map((character) => {
   const container = {};
@@ -105,6 +61,13 @@ const allCharactersWithHeightAndNames = characters.map((character) => {
 });
 
 // console.log(allCharactersWithHeightAndNames);
+
+console.log(
+  characters.map((character) => ({
+    name: character.name,
+    height: character.height,
+  }))
+);
 
 // console.log(
 //   characters.map((character) => ({
@@ -119,12 +82,12 @@ const firstNameOfCharacter = characters.map((character) => {
   return character.name.split(" ")[0];
 });
 
-// console.log(characters.map((character) => character.name.split(" ")[0]));
 // console.log(firstNameOfCharacter);
 
-// console.log(characters);
+console.log(characters.map((character) => character.name.split(" ")[0]));
 
-// FILTER
+                              // Array FILTER Function
+
 // Get characters with mass greater than 100
 
 const massGreaterThan100 = characters.filter((character) => {
@@ -133,7 +96,7 @@ const massGreaterThan100 = characters.filter((character) => {
 
 // console.log(massGreaterThan100);
 
-// console.log(characters.filter((character) => character.mass > 100));
+console.log(characters.filter((character) => character.mass > 100));
 
 // Get characters with mass less than 200
 
@@ -142,7 +105,8 @@ const heightLessThan200 = characters.filter((character) => {
 });
 
 // console.log(heightLessThan200);
-// console.log(characters.filter((character) => character.mass < 100));
+console.log(characters.filter((character) => character.mass < 100));
+
 // Get all male characters
 
 const allMaleCharcaters = characters.filter((character) => {
@@ -151,7 +115,8 @@ const allMaleCharcaters = characters.filter((character) => {
 
 // console.log(allMaleCharcaters);
 
-// console.log(characters.filter((character) => character.gender === "male"));
+console.log(characters.filter((character) => character.gender === "male"));
+
 // Get all female characters
 
 const allFeMaleCharcaters = characters.filter((character) => {
@@ -160,8 +125,140 @@ const allFeMaleCharcaters = characters.filter((character) => {
 
 // console.log(allMaleCharcaters);
 
-// console.log(characters.filter((character) => character.gender === "female"));
+console.log(characters.filter((character) => character.gender === "female"));
 
-// completed Array Filter,Map functions
+                              // Array SOME Function
+
+// Is there at least one male character?
+
+const atleastOneMale = characters.some((character) => {
+  return character.gender === "male";
+});
+
+// console.log(atleastOneMale);
+
+console.log(characters.some((character) => character.gender === "male"));
+
+// Is there at least one character with blue eyes?
+
+const atleastOneBlueEyes = characters.some((character) => {
+  return character.eye_color === "blue";
+});
+
+// console.log(atleastOneBlueEyes);
+
+console.log(characters.some((character) => character.eye_color === "blue"));
+
+// Is there at least one character taller than 200?
+
+const tallerthan200 = characters.some((character) => {
+  return character.height > 200;
+});
+
+// console.log(tallerthan200);
+
+console.log(characters.some((character) => character.height > 200));
+
+// Is there at least one character that has mass less than 50?
+
+const masslessthan50 = characters.some((character) => {
+  return character.mass < 50;
+});
+
+// console.log(masslessthan50);
+
+console.log(characters.some((character) => character.mass < 50));
+
+                              // Array EVERY Function
+
+// Does every character have blue eyes?
+const everyCharacterBlue = characters.every((character) => {
+  return character.eye_color === "blue";
+});
+// console.log(everyCharacterBlue);
+
+console.log(characters.every((character) => character.eye_color === "blue"));
+
+// Does every character have mass more than 40?
+
+const everyCharacterMassGT40 = characters.every((character) => {
+  return character.mass > 40;
+});
+
+// console.log(everyCharacterMassGT40);
+
+console.log(characters.every((character) => character.mass > 40));
+
+// Is every character shorter than 200?
+
+const shorterThan200 = characters.every((character) => {
+  return character.height < 200;
+});
+// console.log(shorterThan200);
+
+console.log(characters.every((character) => character.height < 200));
+
+// Is every character male?
+
+const everyCharacterMale = characters.every((character) => {
+  return character.gender === "male";
+});
+// console.log(everyCharacterMale);
+
+console.log(characters.every((character) => character.gender === "male"));
+
+const items = [
+  { name: "Bike", price: 100 },
+  { name: "TV", price: 200 },
+  { name: "Album", price: 50 },
+  { name: "Book", price: 5 },
+  { name: "Phone", price: 500 },
+  { name: "Computer", price: 1000 },
+  { name: "Keyboard", price: 25 },
+];
+
+// it will filter arrays whose price is less than or equals to 100 and
+// one great thing about using filter function is it will not modify original array
+const filtereditems = items.filter((item) => {
+  return item.price <= 100;
+});
+
+console.log(items.filter((item) => item.price <= 100));
+
+// Original array is not changed
+// console.log(items);
+// [
+// { name: 'Bike', price: 100 },{ name: 'TV', price: 200 },{ name: 'Album', price: 50 },
+// { name: 'Book', price: 5 },{ name: 'Phone', price: 500 },{ name: 'Computer', price: 1000 },
+// { name: 'Keyboard', price: 25 }
+// ]
+
+// New array consists of filtered values
+// console.log(filtereditems);
+
+// [
+//   { name: 'Bike', price: 100 },
+//   { name: 'Album', price: 50 },
+//   { name: 'Book', price: 5 },
+//   { name: 'Keyboard', price: 25 }
+// ]
+
+// Map function is similar to filter function but this return the items which we need
+const itemsNames = items.map((item) => {
+  return item.name;
+});
+
+console.log(items.map((item) => item.name));
+
+// this case we need item names
+// console.log(itemsNames);
+// [
+//   'Bike',     'TV',
+//   'Album',    'Book',
+//   'Phone',    'Computer',
+//   'Keyboard'
+// ]
+
+// completed Array Filter,Map,Some,Every functions
 
 
