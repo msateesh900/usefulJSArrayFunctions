@@ -207,6 +207,87 @@ const everyCharacterMale = characters.every((character) => {
 
 console.log(characters.every((character) => character.gender === "male"));
 
+                              // Array SORT Function
+
+// Sort by name
+
+const sortByName = characters.sort((a, b) => {
+  if (a.name < b.name) return -1;
+  return 1;
+});
+
+// console.log(sortByName);
+
+// Sort by mass
+
+const sortByMass = characters.sort((a, b) => {
+  return a.mass - b.mass;
+});
+
+// console.log(sortByMass);
+console.log(characters.sort((a, b) => a.mass - b.mass));
+
+// Sort by height
+
+const sortByHeight = characters.sort((a, b) => {
+  return b.height - a.height;
+});
+
+// console.log(sortByHeight);
+
+console.log(characters.sort((a, b) => a.height - b.height));
+
+// Sort by gender
+
+const sortByGender = characters.sort((a, b) => {
+  if (a.gender < b.gender) return -1;
+  return 1;
+});
+
+console.log(sortByGender);
+
+                              // Array REDUCE Function
+
+// Get the total mass of all characters
+
+const getTotalMass = characters.reduce(
+  (acc, curr) => acc + parseInt(curr.mass),
+  0
+);
+
+console.log(getTotalMass);
+
+// Get the total height of all characters
+
+const getTotalHeight = characters.reduce(
+  (acc, curr) => acc + parseInt(curr.height),
+  0
+);
+
+console.log(getTotalHeight);
+// Get the total number of characters by eye color (hint. a map of eye color to count)
+
+const charactersByEyeColor = characters.reduce((acc, cur) => {
+  const color = cur.eye_color;
+  if (acc[color]) {
+    acc[color]++;
+  } else {
+    acc[color] = 1;
+  }
+  return acc;
+}, {});
+
+console.log(charactersByEyeColor);
+
+// Get the total number of characters in all the character names
+
+const charactersLength = characters.reduce(
+  (acc, cur) => acc + cur.name.length,
+  0
+);
+
+console.log(charactersLength);
+
 const items = [
   { name: "Bike", price: 100 },
   { name: "TV", price: 200 },
@@ -259,6 +340,6 @@ console.log(items.map((item) => item.name));
 //   'Keyboard'
 // ]
 
-// completed Array Filter,Map,Some,Every functions
+// completed Array filter,map,some,every,reduce,sort functions
 
 
