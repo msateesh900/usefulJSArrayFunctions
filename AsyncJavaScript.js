@@ -63,3 +63,25 @@ myPromise
   .catch((err) => {
     console.log("error", err);
   });
+
+
+// fetching data from external server using fetch api(default available in JS)
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((res) => res.json())
+  .then((json) => {
+    console.log("First user in the array:");
+    console.log(json[0]);
+    console.log("Name of the first user in the array:");
+    console.log(json[0].name);
+  })
+  .catch((err) => console.error(err));
+
+// fetching data from external server using axios( A promise based )
+axios
+  .get("https://jsonplaceholder.typicode.com/users")
+  .then((res) => console.log(res.data[0].name))
+  .catch((err) => {
+    console.log(err);
+  });
+
