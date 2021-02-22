@@ -85,3 +85,34 @@ axios
     console.log(err);
   });
 
+
+// load file with async/await
+
+const loadfile = async () => {
+  try {
+    console.log("inside async await for loading a file");
+    const data = await fs.promises.readFile("./test.txt", {
+      encoding: "utf-8",
+    });
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+loadfile();
+
+// fetch using async await next level
+
+const fetchPoke = async (id) => {
+  try {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+fetchPoke(2);
+
