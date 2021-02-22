@@ -1,6 +1,6 @@
-                                                                    // Asynchronous JavaScript
+                                                                    // Asynchronous JavaScript (Start Something Now and finish it Later)
 
-// Callback, Promises,Async & Await
+// Callback, Promises,Async & Await 
 
 // 1.Callbacks
 // setTimeout
@@ -115,4 +115,28 @@ const fetchPoke = async (id) => {
 };
 
 fetchPoke(2);
+
+
+function curry(f) {
+  // curry(f) does the currying transform
+  return function (a) {
+    return function (b) {
+      return function (c) {
+        return f(a, b, c);
+      };
+    };
+  };
+}
+
+// usage
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+let curriedSum = curry(sum);
+
+console.log("carried sum:", curriedSum((1)(2)(3));
+
+
+
 
