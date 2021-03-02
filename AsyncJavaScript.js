@@ -1,6 +1,6 @@
-                                                                    // Asynchronous JavaScript (Start Something Now and finish it Later)
+// Asynchronous JavaScript (Start Something Now and finish it Later)
 
-// Callback, Promises,Async & Await 
+// Callback, Promises,Async & Await
 
 // 1.Callbacks
 // setTimeout
@@ -64,7 +64,6 @@ myPromise
     console.log("error", err);
   });
 
-
 // fetching data from external server using fetch api(default available in JS)
 
 fetch("https://jsonplaceholder.typicode.com/users")
@@ -84,7 +83,6 @@ axios
   .catch((err) => {
     console.log(err);
   });
-
 
 // load file with async/await
 
@@ -116,7 +114,6 @@ const fetchPoke = async (id) => {
 
 fetchPoke(2);
 
-
 function curry(f) {
   // curry(f) does the currying transform
   return function (a) {
@@ -135,8 +132,4 @@ function sum(a, b, c) {
 
 let curriedSum = curry(sum);
 
-console.log("carried sum:", curriedSum((1)(2)(3));
-
-
-
-
+console.log("carried sum:", curriedSum(1(2)(3)));
