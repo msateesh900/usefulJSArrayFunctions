@@ -4,7 +4,8 @@
   "description": "",
   "main": "AsyncJavaScript.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon JSArrayFunctions.js"
   },
   "devDependencies": {
     "axios": "^0.21.1",
